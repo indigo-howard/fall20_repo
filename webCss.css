@@ -8,7 +8,9 @@
     color: MediumOrchid;
     background-color: OldLace }
 	
-	
+	section{
+	background-color: #F4ECF7;
+	}
 	.centerImage
 	{
 	text-align:center;
@@ -39,6 +41,30 @@
 	.active {
 	background-color: #4CAF50;
 	}
+	
+	/*main menu*/
+	.collapsible {
+	background-color: #eee;
+	color: #444;
+	cursor: pointer;
+	padding: 18px;
+	width: 100%;
+	border: none;
+	text-align: left;
+	outline: none;
+	font-size: 15px;
+	}
+	.active, .collapsible:hover {
+	background-color: #ccc;
+	}
+	.content {
+	padding: 0 18px;
+	display: none;
+	overflow: hidden;
+	background-color: #f1f1f1;
+	}
+	
+	
 	/* footer*/
 	.fa-linkedin {
 	background: #007bb5;
