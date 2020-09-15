@@ -1,8 +1,11 @@
 <!DOCTYPE html>
+<!-- main -->
 <html>
 <head>
 <link rel="stylesheet" href="webCss.css">
-<h1> Welcome to mini site </h1>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<img src="homeh.jpg" alt="home" class="center">
+
 </head>
 
 <body>
@@ -15,6 +18,29 @@
 	</ul>
 </nav>
 <p>   here is my site  </p>
+<!-- projects-->
+<button type="button" class="collapsible">Open Projects</button>
+<div class="content">
+  <p>Web app</p>
+</div>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+<!-- projects END-->
 
 </body>
 </html>
