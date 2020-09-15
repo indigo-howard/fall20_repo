@@ -1,11 +1,21 @@
 
 	h1 {color:purple;}
 	p {color:LightSeaGreen;}
-	body { <!-- main body-->
+	
+	body { 
     font-family: Georgia, "Times New Roman",
           Times, serif;
     color: MediumOrchid;
     background-color: OldLace }
+	
+	
+	.centerImage
+	{
+	text-align:center;
+	display:block;
+	}
+	
+	/*top Menu*/
 	ul {
 	list-style-type: none;
 	margin: 0;
@@ -29,5 +39,12 @@
 	.active {
 	background-color: #4CAF50;
 	}
-	
-	
+	/* footer*/
+	.fa-linkedin {
+	background: #007bb5;
+	color: white;
+	}
+	.fa-youtube {
+	background: #bb0000;
+	color: white;
+	}
