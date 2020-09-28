@@ -74,3 +74,11 @@
 	background: #bb0000;
 	color: white;
 	}
+	/* javascript */
+	#container {
+ 	 width: 400px;
+ 	 height: 400px;
+  	position: relative;
+  	background: yellow;
+	}
+	
