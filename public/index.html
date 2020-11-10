@@ -4,7 +4,6 @@
 <head>
 <link rel="stylesheet" href="webCss.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<img src="homeh.jpg" alt="home" class="left">
 
 </head>
 
@@ -18,26 +17,48 @@
 	</ul>
 </nav>
 <h2>   here is my site  </h2>
-
-<form action="/action_page.php">
-  <label for="type">What type of monster:</label>
-  <input type="text" id="type" name="type"><br><br>
-  <label for="cr">what level?:</label>
-  <input type="search" id="cr" name="cr"><br><br>
-  <input type="submit" value="Submit">
-</form>
+<!-- Random Generator -->
+<div class="app">
+  <header>Random Monster Generator</header>
+  <section class="quotes">
+    <div class="quote-text" id="js-quote-text"></div>
+  </section>
+  <section class="controls">
+    <button type="button" id="js-new-monster" class="new-quote button">
+      Generate a new monster
+    </button>
+   <!-- TURN INTO DOWNLOAD BUTTON  <a class="twitter button" id="js-tweet"
+	 target="_blank" rel="noreferrer">Tweet it!</a> -->
+  </section>
+</div>
+<!-- Generator Script -->
 <script>
-JSON.stringify(type);
-JSON.stringify(cr);
+const newMonsterButton = document.querySelector('#js-new-monster');
+newMonsterButton.addEventListener('click', getMonster);
 
+var monsters = ["Goblin", "Troll", "Raksha","Yeti", "Demogorgon"];
+var min = 0;
+var max = 4;
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+
+function getMonster() {
+		var rng = getRndInteger(min,max);
+		var selectedMon = monsters[rng];
+    displayQuote(selectedMon);
+}
+function displayQuote(quote) {
+  const quoteText = document.querySelector('#js-quote-text');
+  quoteText.textContent = quote;
+}
 </script>
+<!--firebase scripts begin here-->
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
-
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
-
 <script>
   // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -55,5 +76,7 @@ JSON.stringify(cr);
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
 </script>
+<!--firebase scripts ends here-->
+
 </body>
 </html>
