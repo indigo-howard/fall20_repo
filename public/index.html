@@ -2,60 +2,153 @@
 <!-- main -->
 <html>
 <head>
+<meta charset="UTF-8">
+<title>Monster Picker</title>
 <link rel="stylesheet" href="webCss.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+<!-- authorization css: materilizied-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 
 <body>
-<nav>
-	<ul>
-		<li><a href="index.html" class ="active">Home</a></li>
-		<li><a href="about.html">About</a></li>
-		<li><a href="contact.html">Contact</a></li>
 
-	</ul>
+<!-- Nav Bar -->
+<nav class="z-depth-0 grey lighten-4">
+  <div class="nav-wrapper container">
+    <!-- Nav Bar -->
+<a href="#" class="brand-logo">
+      <img src="img/logo.svg" style="width: 180px; margin-top: 10px;">
+    </a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <!--nav bar for different pages-->
+      <li><a href="index.html" class ="active">Home</a></li>
+		  <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <!--nav bar for logging in-->
+        <li class="logged-in">
+          <a href="#" class="grey-text modal-trigger" data-target="modal-account">Account</a>
+        </li>
+        <li class="logged-in">
+          <a href="#" class="grey-text" id="logout">Logout</a>
+        </li>
+        <li class="logged-in">
+          <a href="#" class="grey-text modal-trigger" data-target="modal-create">Create Notes</a>
+        </li>
+        <li class="logged-out">
+          <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
+        </li>
+        <li class="logged-out">
+          <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
+        </li>
+      </span>
+    </ul>
+  </div>
 </nav>
-<h2>   here is my site  </h2>
-<!-- Random Generator -->
-<div class="app">
-  <header>Random Monster Generator</header>
-  <section class="quotes">
-    <div class="quote-text" id="js-quote-text"></div>
-  </section>
-  <section class="controls">
-    <button type="button" id="js-new-monster" class="new-quote button">
-      Generate a new monster
-    </button>
+<!-- SIGN UP MODAL -->
+<div id="modal-signup" class="modal">
+  <div class="modal-content">
+    <h4>Sign up</h4><br />
+    <form id="signup-form">
+      <div class="input-field">
+        <input type="email" id="signup-email" required />
+        <label for="signup-email">Email address</label>
+      </div>
+      <div class="input-field">
+        <input type="password" id="signup-password" required />
+        <label for="signup-password">Choose password</label>
+      </div>
+      <button class="btn yellow darken-2 z-depth-0">Sign up</button>
+    </form>
+  </div>
+</div>
+
+<!-- LOGIN MODAL -->
+<div id="modal-login" class="modal">
+  <div class="modal-content">
+    <h4>Login</h4><br />
+    <form id="login-form">
+      <div class="input-field">
+        <input type="email" id="login-email" required />
+        <label for="login-email">Email address</label>
+      </div>
+      <div class="input-field">
+        <input type="password" id="login-password" required />
+        <label for="login-password">Your password</label>
+      </div>
+      <button class="btn yellow darken-2 z-depth-0">Login</button>
+    </form>
+  </div>
+</div>
+
+<!-- ACCOUNT MODAL -->
+<div id="modal-account" class="modal">
+  <div class="modal-content center-align">
+    <h4>Account details</h4><br />
+    <div class="account-details"></div>
+  </div>
+</div>
+<!-- split start-->
+<div class="split right">
+  <div class="centered">
+
+<!-- CREATE GUIDE MODAL -->
+<div id="modal-create" class="modal">
+  <div class="modal-content">
+    <h4>Create Guide</h4><br />
+    <form id="create-form">
+      <div class="input-field">
+        <input type="text" id="title" required>
+        <label for="title">Guide Title</label>
+      </div>
+      <div class="input-field">
+        <textarea id="content" class="materialize-textarea" required></textarea>
+        <label for="content">Guide Content</label>
+      </div>
+      <button class="btn yellow darken-2 z-depth-0">Create</button>
+    </form>
+  </div>
+</div>
+
+<!-- GUIDE LIST -->
+<div class="container" style="margin-top: 40px;">
+  <ul class="collapsible z-depth-0 guides" style="border: none;">
+   
+  </ul>
+</div>
+
+<!--split done-->
+</div>
+</div>
+<!-- login done -->
+
+<!-- Monster Random Generator -->
+<div class="split left">
+  <div class="centered">
+    <div class="app">
+    <header>Random Monster Generator</header>
+    <section class="quotes">
+      <div class="quote-text" id="js-quote-text"></div>
+    </section>
+    <section class="controls">
+      <button type="button" id="js-new-monster" class="new-quote button">
+        Generate a new monster
+     </button>
    <!-- TURN INTO DOWNLOAD BUTTON  <a class="twitter button" id="js-tweet"
 	 target="_blank" rel="noreferrer">Tweet it!</a> -->
-  </section>
+    </section>
+  </div>
+  </div>
 </div>
-<!-- Generator Script -->
-<script>
-const newMonsterButton = document.querySelector('#js-new-monster');
-newMonsterButton.addEventListener('click', getMonster);
 
-var monsters = ["Goblin", "Troll", "Raksha","Yeti", "Demogorgon"];
-var min = 0;
-var max = 4;
-function getRndInteger(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) ) + min;
-}
 
-function getMonster() {
-		var rng = getRndInteger(min,max);
-		var selectedMon = monsters[rng];
-    displayQuote(selectedMon);
-}
-function displayQuote(quote) {
-  const quoteText = document.querySelector('#js-quote-text');
-  quoteText.textContent = quote;
-}
-</script>
 <!--firebase scripts begin here-->
 <!-- The core Firebase JS SDK is always required and must be listed first -->
+
 <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+<!--firebase auth and firestore-->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
@@ -75,8 +168,41 @@ function displayQuote(quote) {
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
+  //make auth and firestore references
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+
+  // update firestore settings
+  db.settings({timestampsInSnapshots: true});
 </script>
 <!--firebase scripts ends here-->
+
+<!-- Compiled and minified JavaScript (part of guide creation)-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="scripts/auth.js"></script>
+<script src="scripts/index.js"></script>
+
+<!-- RM Generator Script -->
+<script>
+const newMonsterButton = document.querySelector('#js-new-monster');
+newMonsterButton.addEventListener('click', getMonster);
+
+var monsters = ["Goblin", "Troll", "Raksha","Yeti", "Demogorgon"];
+var min = 0;
+var max = 4;
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+function getMonster() {
+		var rng = getRndInteger(min,max);
+		var selectedMon = monsters[rng];
+    displayQuote(selectedMon);
+}
+function displayQuote(quote) {
+  const quoteText = document.querySelector('#js-quote-text');
+  quoteText.textContent = quote;
+}
+</script>
 
 </body>
 </html>
