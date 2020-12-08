@@ -1,14 +1,15 @@
+/*--CSS --*/
 
 	h1 {color:Lavender;}
 	p {color:Lavender;}
-
+	h5 {color:steelblue;}
 	body {
     font-family: -apple-system,
 		 BlinkMacSystemFont, "Segoe UI",
 		 Roboto, Oxygen-Sans, Ubuntu, Cantarell,
 		 "Helvetica Neue", sans-serif;
 
-    color: DarkMagenta;
+    color:darkmagenta;
     background-color: SteelBlue }
 
 	section{ background-color:SteelBlue; }
@@ -35,9 +36,13 @@
   }
   
   /* Control the right side */
-  .right {
-	right: 0;
-	
+  
+.right {
+	position: relative;
+	right: 0%;
+	width: 75%;
+  }
+  
 
   }
   
@@ -45,7 +50,7 @@
   .centered {
 	position: absolute;
 	top: 50%;
-	left: 50%;
+	left: 40%;
 	transform: translate(-50%, -50%);
 	text-align: center;
   }
@@ -90,7 +95,7 @@
 	color: white;
 	}
 
-	/* for monsters generator*/
+/* for monsters generator============================================================*/
 	html {
 	  box-sizing: border-box;
 	}
@@ -120,7 +125,7 @@
 	  font-size: 30px;
 	  text-align: center;
 	  padding: 10px;
-	  border-bottom: 1px solid #ebebeb;
+	  border-bottom: 1px solid darkmagenta;
 	}
 
 	.quotes {
@@ -130,6 +135,7 @@
 
 	.quote-text {
 	  padding-bottom: 20px;
+	
 	  font-size: 25px;
 	  color: black;
 	}
@@ -152,16 +158,6 @@
 	  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
 	}
 
-	/* TURN INTO DOWNLOAD FOR MONSTERS block
-	.twitter {
-	  background-color: #1da1f2;
-	  text-decoration: none;
-	}
-
-	.twitter:hover {
-	  background-color: #1e7fbb;
-	}
- */
 	.new-quote {
 	  background-color: DarkOrchid;
 	  margin-bottom: 15px;
@@ -185,4 +181,5 @@
 	    font-size: 18px;
 	  }
 	}
+
 /* javascript */
